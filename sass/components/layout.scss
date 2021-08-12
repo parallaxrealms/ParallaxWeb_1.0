@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+}
+canvas{
+  position: fixed;
+  top: 0;
+  left:0;
+  margin:0; 
+  padding:0; 
+}
+
+main{
+  width:100vw;
+  color: $white;
+  position: absolute;
+  z-index: 99;
+  width:100%;
+  margin: 0px auto;
+  padding: 0px auto;
+
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+}
+
+nav{
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  grid-column: 1 / span 12;
+  background: $blue;
+  @include nav-bg;
+  // background-size: cover;
+}
+
+section{
+  grid-column: 6 / 12;
+  background: $red;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 50%;
+  margin-bottom: 50rem;
+}
