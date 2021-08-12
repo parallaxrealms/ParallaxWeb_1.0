@@ -40,13 +40,18 @@ parallaxTexture.repeat.set(3, 1);
 //Mesh
 const torus = new THREE.Mesh(geo_torus, mat_torus);
 scene.add(torus);
+torus.position.x = -20;
+torus.position.y = 0;
+torus.position.z = 0;
 
 const parallax = new THREE.Mesh(
   new THREE.ConeGeometry(10, 10, 4),
   new THREE.MeshStandardMaterial({ map: parallaxTexture })
 );
 scene.add(parallax);
-
+parallax.position.x = -20;
+parallax.position.y = 0;
+parallax.position.z = 0;
 /**
  * Lighting/Helpers
  */
@@ -81,7 +86,7 @@ window.addEventListener('resize', () => {
   // Update renderer
   renderer.setSize(sizes.width, sizes.height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
+});
 
 /**
  * Functions
