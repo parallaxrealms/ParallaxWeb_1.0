@@ -1,4 +1,4 @@
-import '../style.css'
+import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { PlaneGeometry } from 'three';
@@ -134,6 +134,15 @@ window.addEventListener('resize', () => {
 /**
  * Functions
  */
+function checkScrollHeight() {
+  console.log("checked")
+  window.scrollTo(0, 0);
+  const t = document.body.getBoundingClientRect().top;
+  if (t != 0) {
+    window.scrollTo(0, 0);
+  }
+}
+
 function addStar() {
   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
   const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
@@ -168,6 +177,7 @@ const tick = () => {
   window.requestAnimationFrame(tick);
 }
 
+checkScrollHeight();
 Array(500).fill().forEach(addStar);
 // document.body.onscroll = moveCamera;
 tick();

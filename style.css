@@ -10,10 +10,12 @@ canvas {
   margin: 0;
   padding: 0;
   outline: none;
+  display: block;
 }
 
 main {
   width: 100vw;
+  min-height: 100%;
   color: #ffffff;
   position: absolute;
   z-index: 99;
