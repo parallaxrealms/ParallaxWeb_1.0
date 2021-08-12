@@ -1,6 +1,12 @@
 import '../style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { PlaneGeometry } from 'three';
+
+//Scrollbar at the top before page loads
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 
 // Size Vars
 const sizes = {
@@ -27,9 +33,14 @@ renderer.render(scene, camera);
 
 //Objects
 const geo_torus = new THREE.TorusGeometry(14, .2, 18, 80);
+const geo_plane = new THREE.PlaneGeometry(100, 100, 50, 50);
+const geo_sphere = new THREE.SphereGeometry(300, 100, 100);
+
 
 //Materials
 const mat_torus = new THREE.MeshStandardMaterial({ color: 0x00efa3 });
+const mat_plane = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, flatShading: true });
+const mat_sphere = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, flatShading: true });
 
 //Textures
 const parallaxTexture = new THREE.TextureLoader().load('img/parallax.jpg');
@@ -37,27 +48,47 @@ parallaxTexture.wrapS = THREE.RepeatWrapping;
 parallaxTexture.wrapT = THREE.RepeatWrapping;
 parallaxTexture.repeat.set(3, 1);
 
-//Mesh
+/**
+ * Mesh Objects
+ */
+//Torus
 const torus = new THREE.Mesh(geo_torus, mat_torus);
 scene.add(torus);
-torus.position.x = -20;
+torus.position.x = -25;
 torus.position.y = 0;
 torus.position.z = 0;
 
+//Parallax
 const parallax = new THREE.Mesh(
   new THREE.ConeGeometry(10, 10, 4),
   new THREE.MeshStandardMaterial({ map: parallaxTexture })
 );
 scene.add(parallax);
-parallax.position.x = -20;
+parallax.position.x = -25;
 parallax.position.y = 0;
 parallax.position.z = 0;
+
+//Plane
+const plane = new THREE.Mesh(geo_plane, mat_plane);
+scene.add(plane);
+plane.position.x = 0;
+plane.position.y = 10;
+plane.position.z = 0;
+plane.rotation.x = 90;
+
+//Sphere
+const sphere = new THREE.Mesh(geo_sphere, mat_sphere);
+scene.add(sphere);
+sphere.position.x = 0;
+sphere.position.y = -310;
+sphere.position.z = 0;
+
 /**
  * Lighting/Helpers
  */
-const pointLight = new THREE.PointLight(0xffffff);
-const ambLight = new THREE.AmbientLight(0xffffff);
-pointLight.position.set(10, 10, 10);
+const pointLight = new THREE.PointLight(0xffffff, .8);
+const ambLight = new THREE.AmbientLight(0xffffff, .2);
+pointLight.position.set(10, 10, 0);
 scene.add(pointLight, ambLight);
 
 const lightHelper = new THREE.PointLightHelper(pointLight);
@@ -72,8 +103,20 @@ scene.add(lightHelper, gridHelper);
 // scene.background = spaceTexture;
 
 /**
- * Listeners
+ * Event Listeners
  */
+window.addEventListener("scroll", function (e) {
+  const t = document.body.getBoundingClientRect().top;
+
+  if (this.oldScroll > this.scrollY) { //Scrolling up
+    camera.position.z += t * -0.001;
+  }
+  else if (this.oldScroll < this.scrollY) { //Scrolling down
+    camera.position.z -= t * -0.001;
+  }
+  this.oldScroll = this.scrollY;
+}, true);
+
 window.addEventListener('resize', () => {
   // Update sizes
   sizes.width = window.innerWidth
@@ -101,14 +144,6 @@ function addStar() {
   star.position.set(x, y, z);
   scene.add(star);
 }
-
-function moveCamera() {
-  const t = document.body.getBoundingClientRect().top;
-
-  camera.position.z += t * -0.001;
-  // camera.position.x = t * -.0002;
-  // camera.position.y = t * -.0002;
-}
 /**
  * Update Loop
  */
@@ -134,5 +169,5 @@ const tick = () => {
 }
 
 Array(500).fill().forEach(addStar);
-document.body.onscroll = moveCamera;
+// document.body.onscroll = moveCamera;
 tick();
