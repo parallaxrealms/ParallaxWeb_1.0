@@ -1,4 +1,4 @@
-import '../style.css'
+import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { PlaneGeometry } from 'three';
@@ -39,8 +39,8 @@ const geo_sphere = new THREE.SphereGeometry(300, 100, 100);
 
 //Materials
 const mat_torus = new THREE.MeshBasicMaterial({ color: 0x00efa3 });
-const mat_plane = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, flatShading: true });
-const mat_sphere = new THREE.MeshPhongMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, shininess: 1, flatShading: true });
+const mat_plane = new THREE.MeshPhongMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, flatShading: true });
+const mat_sphere = new THREE.MeshPhongMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, shininess: 1.0, flatShading: true });
 
 //Textures
 const parallaxTexture = new THREE.TextureLoader().load('img/parallax.jpg');
@@ -80,7 +80,7 @@ plane.rotation.x = 90;
 const sphere = new THREE.Mesh(geo_sphere, mat_sphere);
 scene.add(sphere);
 sphere.position.x = 0;
-sphere.position.y = -310;
+sphere.position.y = -312;
 sphere.position.z = 0;
 
 /**
@@ -135,7 +135,6 @@ window.addEventListener('resize', () => {
  * Functions
  */
 function checkScrollHeight() {
-  console.log("checked")
   window.scrollTo(0, 0);
   const t = document.body.getBoundingClientRect().top;
   if (t != 0) {
