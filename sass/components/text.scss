@@ -1,0 +1,21 @@
+nav{
+  h1{
+    font-size: 3rem;
+    @include h1_nav;
+  }
+  a{
+    color: $black;
+    text-shadow: -4px 2px 0px rgba(255, 255, 255, 0.5);
+  }
+  a:hover{
+    color: $white;
+  }
+}
+section{
+  h1{
+    @include h1_section;
+  }
+  p{
+    @include p_section;
+  }
+}

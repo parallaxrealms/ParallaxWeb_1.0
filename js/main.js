@@ -1,4 +1,4 @@
-import './style.css'
+import '../style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { PlaneGeometry } from 'three';
@@ -32,15 +32,15 @@ renderer.setSize(sizes.width, sizes.height);
 renderer.render(scene, camera);
 
 //Objects
-const geo_torus = new THREE.TorusGeometry(14, .2, 18, 80);
+const geo_torus = new THREE.TorusGeometry(14, .1, 18, 80);
 const geo_plane = new THREE.PlaneGeometry(100, 100, 50, 50);
 const geo_sphere = new THREE.SphereGeometry(300, 100, 100);
 
 
 //Materials
-const mat_torus = new THREE.MeshStandardMaterial({ color: 0x00efa3 });
+const mat_torus = new THREE.MeshBasicMaterial({ color: 0x00efa3 });
 const mat_plane = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, flatShading: true });
-const mat_sphere = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, flatShading: true });
+const mat_sphere = new THREE.MeshPhongMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, shininess: 1, flatShading: true });
 
 //Textures
 const parallaxTexture = new THREE.TextureLoader().load('img/parallax.jpg');
@@ -109,13 +109,13 @@ window.addEventListener("scroll", function (e) {
   const t = document.body.getBoundingClientRect().top;
 
   if (this.oldScroll > this.scrollY) { //Scrolling up
-    camera.position.z += t * -0.001;
-  }
-  else if (this.oldScroll < this.scrollY) { //Scrolling down
     camera.position.z -= t * -0.001;
   }
+  else if (this.oldScroll < this.scrollY) { //Scrolling down
+    camera.position.z += t * -0.001;
+  }
   this.oldScroll = this.scrollY;
-}, true);
+}, false);
 
 window.addEventListener('resize', () => {
   // Update sizes
@@ -153,6 +153,7 @@ function addStar() {
   star.position.set(x, y, z);
   scene.add(star);
 }
+
 /**
  * Update Loop
  */
