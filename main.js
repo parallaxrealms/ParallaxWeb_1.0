@@ -1,7 +1,7 @@
 import './style.css'
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { PlaneGeometry } from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 //Scrollbar at the top before page loads
 window.onbeforeunload = function () {
@@ -19,7 +19,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
 //Set initial position
 camera.position.x = 0;
-camera.position.y = 0;
+camera.position.y = 10;
 camera.position.z = 30;
 
 // Canvas and Renderer
@@ -33,14 +33,14 @@ renderer.render(scene, camera);
 
 //Objects
 const geo_torus = new THREE.TorusGeometry(14, .1, 18, 80);
-const geo_plane = new THREE.PlaneGeometry(100, 100, 50, 50);
+const geo_plane = new THREE.PlaneGeometry(10, 10, 50, 50);
 const geo_sphere = new THREE.SphereGeometry(300, 100, 100);
 
 
 //Materials
 const mat_torus = new THREE.MeshBasicMaterial({ color: 0x00efa3 });
-const mat_plane = new THREE.MeshPhongMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, flatShading: true });
-const mat_sphere = new THREE.MeshPhongMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, shininess: 1.0, flatShading: true });
+const mat_plane = new THREE.MeshBasicMaterial({ color: 0x00efa3, roughness: 0.0, metalness: 1.0, shininess: 100, flatShading: true });
+const mat_sphere = new THREE.MeshPhongMaterial({ color: 0xffffff, roughness: 0.0, metalness: 1.0, shininess: 10, flatShading: true });
 
 //Textures
 const parallaxTexture = new THREE.TextureLoader().load('img/parallax.jpg');
@@ -61,8 +61,7 @@ torus.position.z = 0;
 //Parallax
 const parallax = new THREE.Mesh(
   new THREE.ConeGeometry(10, 10, 4),
-  new THREE.MeshStandardMaterial({ map: parallaxTexture })
-);
+  new THREE.MeshPhongMaterial({ color: 0x00efa3, reflectivity: 1.0, roughness: 1.0, metalness: 1.0, vertexColors: false, shininess: 100, flatShading: false }));
 scene.add(parallax);
 parallax.position.x = -25;
 parallax.position.y = 0;
@@ -72,13 +71,13 @@ parallax.position.z = 0;
 const plane = new THREE.Mesh(geo_plane, mat_plane);
 scene.add(plane);
 plane.position.x = 0;
-plane.position.y = 10;
+plane.position.y = -7;
 plane.position.z = 0;
-plane.rotation.x = 90;
+plane.rotation.x = -70;
 
 //Sphere
 const sphere = new THREE.Mesh(geo_sphere, mat_sphere);
-scene.add(sphere);
+// scene.add(sphere);
 sphere.position.x = 0;
 sphere.position.y = -312;
 sphere.position.z = 0;
@@ -94,6 +93,7 @@ scene.add(pointLight, ambLight);
 const lightHelper = new THREE.PointLightHelper(pointLight);
 const gridHelper = new THREE.GridHelper(200, 50);
 scene.add(lightHelper, gridHelper);
+
 // const controls = new OrbitControls(camera, renderer.domElement);
 
 /**
