@@ -6068,6 +6068,7 @@ fieldset:disabled .btn {
 	color: #fff;
 	text-align: center;
 	background-color: #000;
+	background-color: red;
 	border-radius: 0.25rem;
 }
 
@@ -13625,7 +13626,7 @@ i.flag-zimbabwe:before {
 	width: 100%;
 	position: absolute;
 	font-size: 0.875em;
-	color: #757575;
+	color: #fff;
 }
 .form-outline .form-helper .form-counter {
 	text-align: right;

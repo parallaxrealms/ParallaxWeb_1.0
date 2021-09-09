@@ -2,59 +2,584 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parallax: Full-Stack Developer</title>
+    <title>Christian Cassara: Full-Stack Developer / Artist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Montserrat+Alternates:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://ik.imagekit.io/lcgo2wk1se/seerseven/css/mdb.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;800&family=Montserrat+Alternates:wght@900&display=swap" rel="stylesheet">
+    <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+  rel="stylesheet"
+/>
   </head>
   <body>
     <canvas id="bg"></canvas>
 
     <main>
-      <nav class="row">
-        <a id="home-link" class="col-md-1 d-md-inline d-none"><img id="home-img" src="img/parallax.jpg" alt=""></a>
+      <nav class="row d-md-flex d-none">
+        <a id="home-link" class="nav-link-btn col-md-1 d-md-inline d-none"><img id="home-img" src="img/parallax.jpg" alt=""></a>
         
         <div class="link-list col-10">
           <div class="row text-center">
-            <a id="btn-web" class="col-md-4 d-md-inline d-none"><h1>Web</h1></a>
-            <a id="btn-games" class="col-md-4 d-md-inline d-none"><h1>Games</h1></a>
-            <a id="btn-contact" class="col-md-4 d-md-inline d-none"><h1>Contact</h1></a>
+            <a id="btn-web" class="nav-link-btn col-md-3 d-md-inline d-none"><h1>Web</h1></a>
+            <a id="btn-games" class="nav-link-btn col-md-3 d-md-inline d-none"><h1>Games</h1></a>
+            <a id="btn-art" class="nav-link-btn col-md-3 d-md-inline d-none"><h1>Art</h1></a>
+            <a id="btn-contact" class="nav-link-btn col-md-3 d-md-inline d-none"><h1>Contact</h1></a>
           </div>
         </div>
       </nav>
 
-      <section id="sec-me">
-        <div class="sec-container">
-          <h1>Who am I?</h1>
-          <p>My name is Christian, and I'm a freelance web developer and artist based out of Asheville, North Carolina.
-  
-            I have more than 8 years of experience as a developer. I use the latest technologies and frameworks to make sites that are responsive and visually-appealing. When I'm not making sites or designing apps, I'm working on art projects, games, or going on hikes and other meatspace activities.
-            
-            I'm available for work. If you have a project in mind and need help executing it, contact me at </p>
+      <nav id="mobile-nav" class="d-block d-md-none d-lg-none">
+        <a id="home-link-m" class="nav-link-btn"><img id="home-img-m" src="img/parallax.jpg" alt=""></a>
+        
+        <div class="link-list">
+          <div class="row text-center">
+            <a id="btn-web-m" class="nav-link-btn">
+              <img src="/img/icon_web.svg" alt="">
+              <h1>Web</h1></a>
+            <a id="btn-games-m" class="nav-link-btn">
+              <img src="/img/icon_games.svg" alt="">
+              <h1>Games</h1></a>
+            <a id="btn-art-m" class="nav-link-btn">
+              <img src="/img/icon_art.svg" alt="">
+              <h1>Art</h1></a>
+            <a id="btn-contact-m" class="nav-link-btn">
+              <img src="/img/icon_contact.svg" alt="">
+              <h1>Contact</h1></a>
+
+              <a class="nav-link-btn" href="https://www.instagram.com/parallaxrealms"> <img src="img/instagram.svg"></a>
+              <a class="nav-link-btn" href="https://www.github.com/parallaxrealms"> <img src="img/github.svg"></a>
+              <a class="nav-link-btn" href="https://www.instagram.com/parallaxrealms"> <img src="img/email.svg"></a>
+          </div>
         </div>
-      </section>
+      </nav>
 
-      <section id="sec-web">
-        <h1>My Latest Web Projects</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem delectus corporis eum obcaecati explicabo ullam illum alias, quibusdam porro harum sint facilis enim doloremque iste ipsum sed, eius maxime veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem delectus corporis eum obcaecati explicabo ullam illum alias, quibusdam porro harum sint facilis enim doloremque iste ipsum sed, eius maxime veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem delectus corporis eum obcaecati explicabo ullam illum alias, quibusdam porro harum sint facilis enim doloremque iste ipsum sed, eius maxime veritatis!
-        </p>
-      </section>
 
-      <section id="sec-games">
-        <h1>This is a section header</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem delectus corporis eum obcaecati explicabo ullam illum alias, quibusdam porro harum sint facilis enim doloremque iste ipsum sed, eius maxime veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem delectus corporis eum obcaecati explicabo ullam illum alias, quibusdam porro harum sint facilis enim doloremque iste ipsum sed, eius maxime veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem delectus corporis eum obcaecati explicabo ullam illum alias, quibusdam porro harum sint facilis enim doloremque iste ipsum sed, eius maxime veritatis!</p>
-      </section>
+      <div id="content-icons" class="social-icons row d-none">
+        <a class="mx-2 text-center" href="https://www.instagram.com/parallaxrealms"> <img class="social-icon" src="img/instagram.svg"> Instagram</a>
+        <a class="mx-2 text-center" href="https://www.github.com/parallaxrealms"> <img class="social-icon" src="img/github.svg">Github </a>
+        <a class="mx-2 text-center" href="https://www.instagram.com/parallaxrealms"> <img class="social-icon" src="img/email.svg">Email </a>
+      </div>
 
-      <section id="sec-contact">
-        <h1>This is a section header</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem delectus corporis eum obcaecati explicabo ullam illum alias, quibusdam porro harum sint facilis enim doloremque iste ipsum sed, eius maxime veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem delectus corporis eum obcaecati explicabo ullam illum alias, quibusdam porro harum sint facilis enim doloremque iste ipsum sed, eius maxime veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem delectus corporis eum obcaecati explicabo ullam illum alias, quibusdam porro harum sint facilis enim doloremque iste ipsum sed, eius maxime veritatis!</p>
-      </section>
+      <div id="content-home" class="content-cards d-none">
+        <section id="sec-me">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Who am I?</h1>
+              <p>My name is Christian, and I'm a freelance web developer and artist based out of Asheville, North Carolina.
+      
+              I have more than 8 years of experience as a developer. I use the latest technologies and frameworks to make sites that are responsive and visually-appealing. When I'm not making sites or designing apps, I'm working on art projects, games, or going on hikes and other meatspace activities.
+                
+              I'm available for work. If you have a project in mind and need help executing it, contact me <a href="#">here</a></p>
+            </div>
+          </div>
+        </section>
+  
+        <section id="sec-skills">
+          <div class="sec-container">
+            <div class="sec-inner row">
+              <h1>Skills and Proficiencies</h1>
+              <div class="col-6 text-end">
+                <span class="rating-category"><p class="d-inline">HTML5, CSS</p><span class="d-inline stars">★★★★★</span></span>
+                <span class="rating-category"><p class="d-inline">JavaScript</p><span class="d-inline stars">★★★★☆</span></span>
+                <span class="rating-category"><p class="d-inline">Ruby, NodeJS</p><span class="d-inline stars">★★★★☆</span></span>
+                <span class="rating-category"><p class="d-inline">C#</p><span class="d-inline stars">★★★★☆</span></span>
+                <span class="rating-category"><p class="d-inline">React</p><span class="d-inline stars">★★★☆☆</span></span>
+              </div>
+              <div class="col-6 text-end">
+                <span class="rating-category"><p class="d-inline">E-Commerce</p><span class="d-inline stars">★★★☆☆</span></span>
+                <span class="rating-category"><p class="d-inline">Game Design</p><span class="d-inline stars">★★★★☆</span></span>
+                <span class="rating-category"><p class="d-inline">Pixel Art</p><span class="d-inline stars">★★★☆☆</span></span>
+                <span class="rating-category"><p class="d-inline">3D-Modeling</p><span class="d-inline stars">★★★☆☆</span></span>
+                <span class="rating-category"><p class="d-inline">2D Design</p><span class="d-inline stars">★★★☆☆</span></span>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <section id="sec-skills">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Recent Projects:</h1>
+              <p>AVL DTG</p>
+              <p>Veritable Threads</p>
+              <p>Nugsweeper</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="content-web" class="content-cards d-none">
+        
+        <section id="sec-projects">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Web Projects:</h1>
+              <div
+                id="carouselExampleCrossfade"
+                class="carousel slide"
+                data-mdb-ride="carousel">
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-mdb-target="#carouselExampleCrossfade"
+                data-mdb-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"></button>
+              <button
+                type="button"
+                data-mdb-target="#carouselExampleCrossfade"
+                data-mdb-slide-to="1"
+                aria-label="Slide 2"></button>
+              <button
+                type="button"
+                data-mdb-target="#carouselExampleCrossfade"
+                data-mdb-slide-to="2"
+                aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/041.jpg"
+                  class="d-block preview-img-web"
+                  alt="..."/>
+                  <div class="row carousel-desc">
+                    <div class="col-6 left-desc">
+                      <h6>AVL DTG</h6>
+                    </div>
+                    <div class="col-6 right-desc">
+                      <span>
+                        <img data-mdb-toggle="tooltip" title="Visit Site" src="img/link.svg" class="btn-view"/>
+                         <img data-mdb-toggle="tooltip" title="Learn More" src="img/eye.svg" class="btn-view"/> 
+                        </span>
+                    </div>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-web"
+                  alt="..."/>
+                  <div class="row carousel-desc">
+                    <div class="col-6 left-desc">
+                      <h6>Veritable Threads</h6>
+                    </div>
+                    <div class="col-6 right-desc">
+                      <span>
+                        <img data-mdb-toggle="tooltip" title="Visit Site" src="img/link.svg" class="btn-view"/>
+                         <img data-mdb-toggle="tooltip" title="Learn More" src="img/eye.svg" class="btn-view"/> 
+                        </span>
+                    </div>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/043.jpg"
+                  class="d-block preview-img-web"
+                  alt="..."/>
+                  <div class="row carousel-desc">
+                    <div class="col-6 left-desc">
+                      <h6>Christian Cassara</h6>
+                    </div>
+                    <div class="col-6 right-desc">
+                      <span>
+                        <img data-mdb-toggle="tooltip" title="You're already here!" src="img/link.svg" class="btn-view"/>
+                         <img data-mdb-toggle="tooltip" title="Learn More" src="img/eye.svg" class="btn-view"/> 
+                        </span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-mdb-target="#carouselExampleCrossfade"
+              data-mdb-slide="prev">
+              <img src="img/arrow-left.svg" class="carousel-control-prev-icon" aria-hidden="true">
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-mdb-target="#carouselExampleCrossfade"
+              data-mdb-slide="next">
+              <img src="img/arrow-right.svg" class="carousel-control-next-icon" aria-hidden="true">
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          </div>
+          </div>
+        </section>
+  
+        <section id="sec-avl-dtg">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Asheville DTG:</h1>
+              <p>AVL DTG is a custom apparel company from Asheville, NC. Focused on delivering the finest
+              customized apparel for both Businesses and Individuals such as T-Shirts, Tank Tops, Hoodies and more from premier apparel wholesellers.
+              </p>
+              <img class="web-img" src="https://mdbootstrap.com/img/new/slides/041.jpg" alt="">
+            </div>
+            <button class="btn btn-visit"> <img src="img/link.svg" class="btn-view"/> Visit Site </button>
+          </div>
+        </section>
+  
+        <section id="sec-veritable">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Veritable Threads:</h1>
+              <p>Veritable Threads sells exclusive designs on quality fabrics. Veritable Threads a unique Apparel Fasion Company that sells it's eye-popping designs on any apparel style 
+              </p>
+              <img class="web-img" src="https://mdbootstrap.com/img/new/slides/041.jpg" alt="">
+            </div>
+            <button class="btn btn-visit"> <img src="img/link.svg" class="btn-view"/> Visit Site </button>
+          </div>
+        </section>
+
+        <section id="sec-christian">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Christian Cassara:</h1>
+              <p>Veritable Threads sells exclusive designs on quality fabrics. Veritable Threads a unique Apparel Fasion Company that sells it's eye-popping designs on any apparel style 
+              </p>
+              <img class="web-img" src="https://mdbootstrap.com/img/new/slides/041.jpg" alt="">
+            </div>
+            <button class="btn btn-visit"> <img src="img/link.svg" class="btn-view"/> Visit Site </button>
+          </div>
+        </section>
+
+        <section id="sec-glamarye">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Vengerberg Glamarye:</h1>
+              <p>The Official Site of Vengerberg Glamarye-The Original Witcher-Inspired Crème Perfume. Charlotte sells high-end perfumes inspired by the Witcher franchise.
+              </p>
+              <img class="web-img"  src="https://mdbootstrap.com/img/new/slides/041.jpg" alt="">
+            </div>
+            <button class="btn btn-visit"> <img src="img/link.svg" class="btn-view"/> Visit Site </button>
+          </div>
+        </section>
+
+      </div>
+
+      <div id="content-games" class="content-cards d-none">
+        <section id="sec-games">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Recent Games:</h1>
+              <div
+                id="carousel_games"
+                class="carousel slide"
+                data-mdb-ride="carousel">
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-mdb-target="#carousel_games"
+                data-mdb-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"></button>
+              <button
+                type="button"
+                data-mdb-target="#carousel_games"
+                data-mdb-slide-to="1"
+                aria-label="Slide 2"></button>
+              <button
+                type="button"
+                data-mdb-target="#carousel_games"
+                data-mdb-slide-to="2"
+                aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/041.jpg"
+                  class="d-block preview-img-web"
+                  alt="..."/>
+                  <div class="row carousel-desc">
+                    <div class="col-6 left-desc">
+                      <h6>Turkey Flight</h6>
+                    </div>
+                    <div class="col-6 right-desc">
+                      <span>
+                        <img data-mdb-toggle="tooltip" title="Visit Site" src="img/link.svg" class="btn-view"/>
+                         <img data-mdb-toggle="tooltip" title="Learn More" src="img/eye.svg" class="btn-view"/> 
+                        </span>
+                    </div>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-web"
+                  alt="..."/>
+                  <div class="row carousel-desc">
+                    <div class="col-6 left-desc">
+                      <h6>Nugsweeper</h6>
+                    </div>
+                    <div class="col-6 right-desc">
+                      <span>
+                        <img data-mdb-toggle="tooltip" title="Visit Site" src="img/link.svg" class="btn-view"/>
+                         <img data-mdb-toggle="tooltip" title="Learn More" src="img/eye.svg" class="btn-view"/> 
+                        </span>
+                    </div>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/043.jpg"
+                  class="d-block preview-img-web"
+                  alt="..."/>
+                  <div class="row carousel-desc">
+                    <div class="col-6 left-desc">
+                      <h6>Spellweave Online</h6>
+                    </div>
+                    <div class="col-6 right-desc">
+                      <span>
+                        <img data-mdb-toggle="tooltip" title="You're already here!" src="img/link.svg" class="btn-view"/>
+                         <img data-mdb-toggle="tooltip" title="Learn More" src="img/eye.svg" class="btn-view"/> 
+                        </span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-mdb-target="#carousel_games"
+              data-mdb-slide="prev">
+              <img src="img/arrow-left.svg" class="carousel-control-prev-icon" aria-hidden="true">
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-mdb-target="#carousel_games"
+              data-mdb-slide="next">
+              <img src="img/arrow-right.svg" class="carousel-control-next-icon" aria-hidden="true">
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          </div>
+          </div>
+        </section>
+
+        <section id="sec-turkey-flight">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Turkey Flight:</h1>
+              <p>A really simple clone of flappy bird I made but with a turkey that is really bad at flying. This was my first experiment with using Unity to render webGL games on HTML5 Canvas.
+              </p>
+              <img class="web-img"  src="https://mdbootstrap.com/img/new/slides/041.jpg" alt="">
+            </div>
+            <button class="btn btn-visit"> <img src="img/link.svg" class="btn-view"/> Visit Site </button>
+          </div>
+        </section>
+
+        <section id="sec-nugsweeper">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Nugsweeper:</h1>
+              <p>A minesweeper clone I made for someone's birthday that has Twitch chat intergrations.
+              </p>
+              <img class="web-img"  src="https://mdbootstrap.com/img/new/slides/041.jpg" alt="">
+            </div>
+            <button class="btn btn-visit"> <img src="img/link.svg" class="btn-view"/> Visit Site </button>
+          </div>
+        </section>
+
+        <section id="sec-spellweave">
+          <div class="sec-container">
+            <div class="sec-inner">
+              <h1>Spellweave Online:</h1>
+              <p>A 1v1 elemental-mixing turn based combat game.
+              </p>
+              <img class="web-img"  src="https://mdbootstrap.com/img/new/slides/041.jpg" alt="">
+            </div>
+            <button class="btn btn-visit"> <img src="img/link.svg" class="btn-view"/> Visit Site </button>
+          </div>
+        </section>
+
+
+
+      </div>
+
+      <div id="content-art" class="gallery-cards d-none">
+        <div class="row">
+          <div class="gallery-item col-sm-9 col-md-4 col-xl-3">
+            <div class="sec-container">
+              <div class="sec-inner text-center">
+                <h5>The Wheel of Becoming</h5>
+                <img
+                  src="img\preview_img_art_wheel.jpg"
+                  class="d-block preview-img-art"
+                  alt="..."/>
+              </div>
+              <span>
+                <img data-mdb-toggle="tooltip" title="Full View" src="img/zoom.svg" class="btn-view"/>
+                 <img data-mdb-toggle="tooltip" title="Learn More" src="img/eye.svg" class="btn-view"/> 
+                </span>
+            </div>
+          </div>
+
+          <div class="gallery-item col-sm-9 col-md-4 col-xl-3">
+            <div class="sec-container">
+              <div class="sec-inner text-center">
+                <h5>The Stoned Ape</h5>
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-art"
+                  alt="..."/>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item col-sm-9 col-md-4 col-xl-3">
+            <div class="sec-container">
+              <div class="sec-inner text-center">
+                <h5>Ganesha</h5>
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-art"
+                  alt="..."/>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item col-sm-9 col-md-4 col-xl-3">
+            <div class="sec-container">
+              <div class="sec-inner text-center">
+                <h5>Ataraxia</h5>
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-art"
+                  alt="..."/>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item col-sm-9 col-md-4 col-xl-3">
+            <div class="sec-container">
+              <div class="sec-inner text-center">
+                <h5>Connected</h5>
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-art"
+                  alt="..."/>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item col-sm-9 col-md-4 col-xl-3">
+            <div class="sec-container">
+              <div class="sec-inner text-center">
+                <h5>Addictions</h5>
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-art"
+                  alt="..."/>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item col-sm-9 col-md-4 col-xl-3">
+            <div class="sec-container">
+              <div class="sec-inner text-center">
+                <h5>Beyond The Veil</h5>
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-art"
+                  alt="..."/>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item col-sm-9 col-md-4 col-xl-3">
+            <div class="sec-container">
+              <div class="sec-inner text-center">
+                <h5>The Monkey And The Machine</h5>
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-art"
+                  alt="..."/>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item col-sm-9 col-md-4 col-xl-3">
+            <div class="sec-container">
+              <div class="sec-inner text-center">
+                <h5>Peering Through</h5>
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-art"
+                  alt="..."/>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item col-sm-9 col-md-4 col-xl-3">
+            <div class="sec-container">
+              <div class="sec-inner text-center">
+                <h5>Wolf Runes</h5>
+                <img
+                  src="https://mdbootstrap.com/img/new/slides/042.jpg"
+                  class="d-block preview-img-art"
+                  alt="..."/>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div id="content-contact" class="content-cards d-none">
+        <section id="sec-email-form">
+          <div class="sec-container">
+            <div class="sec-inner text-center">
+              <h1>Connect With Me:</h1>
+              <form action="submit">
+                <div class="form-input my-2">
+                  <div class="form-outline">
+                    <input type="email" id="typeEmail" class="form-control" />
+                    <label class="form-label" for="typeEmail">Your E-mail</label>
+                  </div>
+                </div>
+
+                <div class="form-input my-2">
+                  <div class="form-outline">
+                    <input type="text" id="typeText" class="form-control" />
+                    <label class="form-label" for="typeText">Your Name</label>
+                  </div>
+                </div>
+
+                <div class="form-input my-2">
+                  <div class="form-outline">
+                    <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                    <label class="form-label" for="textAreaExample">Your Message</label>
+                  </div>
+                </div>
+                <div class="text-area">
+                  <button type="button" class="btn btn-submit-form">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
       
     </main>
-    
-    <script type="module" src="/main.js"></script>
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+    ></script>
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
+    ></script>
+    <script src="js/components.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

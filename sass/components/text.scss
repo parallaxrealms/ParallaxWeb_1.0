@@ -14,8 +14,50 @@ nav{
 section{
   h1{
     @include h1_section;
+    text-align: center;
+  }
+  h6{
+    @include h6_item;
   }
   p{
     @include p_section;
+  }
+  a{
+    color: $neon-teal;
+    font-weight: 500;
+  }
+  a:hover{
+    color: $neon-teal;
+    font-weight: 800;
+  }
+  .rating-category{
+    display:block;
+    background-color: $dark;
+    border-radius: 5px;
+    padding: 0px;
+    padding-right: 10px;
+    margin: 6px;
+    text-shadow: 4px 4px 3px rgba(0, 0, 0, 1);
+    p{
+      font-size: .9rem;
+    }
+  }
+  .stars{
+    padding-left: 10px;
+    color: $neon-teal;
+    font-size: 2rem;
+  }
+}
+.gallery-cards{
+  h5{
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 500;
+    padding: 0px;
+    }
+}
+.right-desc{
+  span{
+    @include span_learnmore;
   }
 }
