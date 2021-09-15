@@ -1,7 +1,6 @@
-import '../style.css'
+import './style.css'
 import * as THREE from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
-import { isPowerOfTwo } from 'three/src/math/mathutils';
 
 //Scrollbar at the top before page loads
 window.onbeforeunload = function () {
@@ -97,6 +96,34 @@ objLoader.load('3d/mercury_lowpoly.obj',
     statue2.position.y = 5.75;
     statue2.position.z = 27;
     scene.add(statue2);
+  }
+);
+
+//Cadaver
+objLoader.load('3d/cadaver.obj',
+  function (cadaver) {
+    cadaver.traverse(function (child) {
+      if (child instanceof THREE.Mesh) {
+        child.material = mat_statue;
+      }
+    });
+    cadaver.position.x = -22;
+    cadaver.position.y = 6;
+    cadaver.position.z = 5;
+    scene.add(cadaver);
+  }
+);
+objLoader.load('3d/cadaver.obj',
+  function (cadaver2) {
+    cadaver2.traverse(function (child) {
+      if (child instanceof THREE.Mesh) {
+        child.material = mat_wire;
+      }
+    });
+    cadaver2.position.x = -22;
+    cadaver2.position.y = 6;
+    cadaver2.position.z = 5;
+    scene.add(cadaver2);
   }
 );
 
@@ -266,7 +293,7 @@ objLoader.load('3d/ico2.obj',
   }
 );
 
-//Octohedrons
+//Spinner 1
 const octo = new THREE.Mesh(
   new THREE.OctahedronGeometry(.25, 0),
   new THREE.MeshPhysicalMaterial({
@@ -285,6 +312,27 @@ scene.add(spinner);
 spinner.position.x = -2;
 spinner.position.y = 8;
 spinner.position.z = 28.5;
+
+//Spinner 2
+const octo2 = new THREE.Mesh(
+  new THREE.OctahedronGeometry(.25, 0),
+  new THREE.MeshPhysicalMaterial({
+    color: 0xffffff, emissive: 0x00efa3, shininess: 10, flatShading: false, metalness: .28, roughness: .2
+  }));
+const torus3 = new THREE.Mesh(geo_torus, mat_torus);
+const torus4 = new THREE.Mesh(geo_torus, mat_torus);
+torus2.rotation.x = 180;
+
+const spinner2 = new THREE.Group();
+spinner2.add(octo2);
+spinner2.add(torus3);
+spinner2.add(torus4);
+scene.add(spinner2);
+
+spinner2.position.x = -20.7;
+spinner2.position.y = 14;
+spinner2.position.z = 5;
+
 
 //Green-Sun
 const sphere = new THREE.Mesh(geo_sphere, mat_sphere);
@@ -353,9 +401,9 @@ scene.add(cam_pos2);
 const cam_pos3 = new THREE.Mesh(
   new THREE.BoxGeometry(.1, .1, .1),
   new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true }));
-cam_pos3.position.x = -18;
+cam_pos3.position.x = -20;
 cam_pos3.position.y = 15;
-cam_pos3.position.z = 20;
+cam_pos3.position.z = 10;
 cam_pos3.visible = false;
 scene.add(cam_pos3);
 
@@ -364,7 +412,7 @@ const cam_pos4 = new THREE.Mesh(
   new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true }));
 cam_pos4.position.x = 0;
 cam_pos4.position.y = 80;
-cam_pos4.position.z = 290;
+cam_pos4.position.z = 200;
 cam_pos4.visible = false;
 scene.add(cam_pos4);
 
@@ -381,14 +429,16 @@ scene.add(cam_pos5);
  */
 const pointLight = new THREE.PointLight(0xfafcf2, 8);
 const statueLight = new THREE.SpotLight(0x63e590, 4.7, 1.5, 1, 8);
+const statue2Light = new THREE.PointLight(0x63e590, 1, 10.5);
 const dirLight = new THREE.DirectionalLight(0xffffff, .4);
 pointLight.position.set(0, 13, -44);
 statueLight.position.set(-1.6, 8.5, 29);
+statue2Light.position.set(-20.7, 14, 5);
 dirLight.position.y = 7;
 dirLight.rotation.y = 10;
-scene.add(pointLight, dirLight, statueLight);
+scene.add(pointLight, dirLight, statueLight, statue2Light);
 
-// const lightHelper = new THREE.SpotLightHelper(statueLight);
+// const lightHelper = new THREE.PointLightHelper(statue2Light);
 // scene.add(lightHelper);
 
 // const controls = new OrbitControls(camera, renderer.domElement);
@@ -429,6 +479,24 @@ window.addEventListener("scroll", function (e) {
       torus2.rotation.x += 0.07;
       torus2.rotation.y += 0.07;
       torus2.rotation.z += 0.07;
+    }
+  }
+  if (currentScene == 2) {
+    if (this.oldScroll > this.scrollY) { //Scrolling up
+      torus3.rotation.x += 0.07;
+      torus3.rotation.y += 0.07;
+      torus3.rotation.z += 0.07;
+      torus4.rotation.x -= 0.07;
+      torus4.rotation.y -= 0.07;
+      torus4.rotation.z -= 0.07;
+    }
+    else if (this.oldScroll < this.scrollY) { //Scrolling down
+      torus3.rotation.x -= 0.07;
+      torus3.rotation.y -= 0.07;
+      torus3.rotation.z -= 0.07;
+      torus4.rotation.x += 0.07;
+      torus4.rotation.y += 0.07;
+      torus4.rotation.z += 0.07;
     }
   }
 
@@ -482,11 +550,13 @@ home_btn.addEventListener('mouseover', () => {
   social_icons.classList.remove("d-none");
   home_btn.classList.add("home-bg-hover");
 })
-// home_btn.addEventListener('mouseout', () => {
-//   if (!hovering_icons) {
-//     social_icons.classList.add("d-none");
-//   }
-// })
+home_btn.addEventListener('mouseout', () => {
+  if (!hovering_icons) {
+    hovering_icons = false;
+    social_icons.classList.add("d-none");
+    home_btn.classList.remove("home-bg-hover");
+  }
+})
 
 const web_content = document.getElementById("content-web");
 const web_btn = document.getElementById("btn-web");
@@ -532,6 +602,12 @@ contact_btn.addEventListener('click', () => {
   navigatePages(4);
 })
 
+const canvas_bg = document.getElementById("bg");
+canvas_bg.addEventListener('mouseover', () => {
+  hovering_icons = false;
+  social_icons.classList.add("d-none");
+  home_btn.classList.remove("home-bg-hover");
+})
 /**
  * Functions
  */
@@ -570,6 +646,11 @@ function navigatePages(pageIndex) {
     games_content.classList.add("d-none");
     art_content.classList.add("d-none");
     contact_content.classList.remove("d-none");
+  }
+  checkScrollHeight();
+
+  if (galleryOpen) {
+    closeModal();
   }
 }
 function checkScrollHeight() {
@@ -640,6 +721,12 @@ const tick = () => {
   torus2.rotation.x -= 0.007;
   torus2.rotation.y -= 0.007;
   torus2.rotation.z -= 0.007;
+  torus3.rotation.x += 0.007;
+  torus3.rotation.y += 0.007;
+  torus3.rotation.z += 0.007;
+  torus4.rotation.x -= 0.007;
+  torus4.rotation.y -= 0.007;
+  torus4.rotation.z -= 0.007;
   octo.rotation.y += .01;
   sphere_texture.rotation.y += .002;
   sphere_texture2.rotation.y += .001;
