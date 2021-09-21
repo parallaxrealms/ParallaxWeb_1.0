@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christian Cassara: Full-Stack Developer / Artist</title>
+    <script src="Nugsweeper_TemplateData/UnityProgress.js"></script>
+    <script src="Nugsweeper_Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Web.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <canvas id="bg"></canvas>
+
+    <main>
+      <nav class="row d-md-flex d-none">
+        <a id="home-link" class="nav-link-home col-md-1 d-md-inline d-none"><img id="home-img" src="img\personal_img.png" alt=""></a>
+        
+        <div class="link-list col-10">
+          <div class="row text-center">
+            <a id="btn-web" class="nav-link-btn col-md-3 d-md-inline d-none"><h1>Web</h1></a>
+            <a id="btn-games" class="nav-link-btn col-md-3 d-md-inline d-none"><h1>Games</h1></a>
+            <a id="btn-art" class="nav-link-btn col-md-3 d-md-inline d-none"><h1>Art</h1></a>
+            <a id="btn-contact" class="nav-link-btn col-md-3 d-md-inline d-none"><h1>Contact</h1></a>
+          </div>
+        </div>
+      </nav>
+
+      <nav id="mobile-nav" class="d-block d-md-none d-lg-none">
+        <a id="home-link-m" class="nav-link-home"><img id="home-img-m" src="img\personal_img.png" alt=""></a>
+        
+        <div class="link-list">
+          <div class="row text-center">
+            <a id="btn-web-m" class="nav-link-btn">
+              <img src="/img/icon_web.svg" alt="">
+              <h1>Web</h1></a>
+            <a id="btn-games-m" class="nav-link-btn">
+              <img src="/img/icon_games.svg" alt="">
+              <h1>Games</h1></a>
+            <a id="btn-art-m" class="nav-link-btn">
+              <img src="/img/icon_art.svg" alt="">
+              <h1>Art</h1></a>
+            <a id="btn-contact-m" class="nav-link-btn">
+              <img src="/img/icon_contact.svg" alt="">
+              <h1>Contact</h1></a>
+
+              <a class="nav-link-btn" href="https://www.instagram.com/parallaxrealms"> <img src="img/instagram.svg"></a>
+              <a class="nav-link-btn" href="https://www.github.com/parallaxrealms"> <img src="img/github.svg"></a>
+              <a class="nav-link-btn" href="https://www.instagram.com/parallaxrealms"> <img src="img/email.svg"></a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="webgl-content">
+        <div id="unityContainer" style="width: 960px; height: 600px"></div>
+        <div class="footer">
+          <div class="webgl-logo"></div>
+          <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+          <div class="title">Nugsweeper</div>
+        </div>
+      </div>
+
+    </main>
+  </body>
+</html>
