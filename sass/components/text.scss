@@ -23,12 +23,12 @@ section{
     @include p_section;
   }
   a{
-    color: $neon-teal;
-    font-weight: 500;
+    color: $white;
+    font-weight: 400;
   }
   a:hover{
     color: $neon-teal;
-    font-weight: 800;
+    font-weight: 400;
   }
   .rating-category{
     display:block;
@@ -59,5 +59,75 @@ section{
 .right-desc{
   span{
     @include span_learnmore;
+  }
+}
+
+/******** Bouncing Arrows ********/
+.arrow-container {
+  -webkit-animation: bounce 3s infinite;
+  animation: bounce 3s infinite;
+}
+/* Scroll down indicator (bouncing) */
+@-webkit-keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-30px);
+  }
+
+  60% {
+    -webkit-transform: translateY(-15px);
+  }
+}
+@-moz-keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -moz-transform: translateY(0);
+  }
+
+  40% {
+    -moz-transform: translateY(-30px);
+  }
+
+  60% {
+    -moz-transform: translateY(-15px);
+  }
+}
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-30px);
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -o-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  60% {
+    -webkit-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    transform: translateY(-15px);
   }
 }
