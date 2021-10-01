@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="img/favicon.ico" />
+		<title>Christian Cassara: Full-Stack Developer / Artist</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;800&family=Montserrat+Alternates:wght@900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+			rel="stylesheet"
+		/>
+		<script src="TemplateData/UnityProgress.js"></script>
+		<script src="Build/UnityLoader.js"></script>
+		<script>
+			var unityInstance = UnityLoader.instantiate(
+				'unityContainer',
+				'Build/Nugsweeper_Web.json',
+				{ onProgress: UnityProgress }
+			);
+		</script>
+	</head>
+	<body>
+		<canvas id="bg"></canvas>
+
+		<main>
+			<nav class="row d-md-flex d-none">
+				<a id="home-link" class="nav-link-home col-md-1 d-md-inline d-none"
+					><img id="home-img" src="img\personal_img.png" alt=""
+				/></a>
+
+				<div class="link-list col-10">
+					<div class="row text-center">
+						<a id="btn-home" class="nav-link-btn col-md-6 d-md-inline d-none"
+							><h1>← Back Home</h1></a
+						>
+						<a id="btn-games2" class="nav-link-btn col-md-6 d-md-inline d-none"
+							><h1>Other Games</h1></a
+						>
+					</div>
+				</div>
+			</nav>
+
+			<nav id="mobile-nav" class="d-block d-md-none d-lg-none">
+				<a
+					id="home-link-m"
+					class="nav-link-home"
+					href="https://parallaxreality.com"
+					><img id="home-img-m" src="img\personal_img.png" alt=""
+				/></a>
+
+				<div class="link-list">
+					<div class="row text-center">
+						<a
+							id="btn-home2-m"
+							class="nav-link-btn"
+							href="https://parallaxreality.com"
+						>
+							<img src="/img/icon_home.svg" alt="" />
+							<h1>Back Home</h1></a
+						>
+						<a id="btn-games2-m" class="nav-link-btn">
+							<img src="/img/icon_games.svg" alt="" />
+							<h1>More Games</h1></a
+						>
+
+						<a
+							class="nav-link-btn"
+							href="https://www.instagram.com/parallaxrealms"
+						>
+							<img src="img/instagram.svg"
+						/></a>
+						<a
+							class="nav-link-btn"
+							href="https://www.github.com/parallaxrealms"
+						>
+							<img src="img/github.svg"
+						/></a>
+						<a
+							class="nav-link-btn"
+							href="https://www.instagram.com/parallaxrealms"
+						>
+							<img src="img/email.svg"
+						/></a>
+					</div>
+				</div>
+			</nav>
+
+			<div id="content-icons" class="social-icons row d-none">
+				<a
+					class="mx-2 text-center"
+					href="https://www.instagram.com/parallaxrealms"
+				>
+					<img class="social-icon" src="img/instagram.svg" /> Instagram</a
+				>
+				<a
+					class="mx-2 text-center"
+					href="https://www.github.com/parallaxrealms"
+				>
+					<img class="social-icon" src="img/github.svg" />Github
+				</a>
+				<a
+					class="mx-2 text-center"
+					href="https://www.instagram.com/parallaxrealms"
+				>
+					<img class="social-icon" src="img/email.svg" />Email
+				</a>
+			</div>
+
+			<div class="webgl-content">
+				<div id="unityContainer" style="width: 960px; height: 600px"></div>
+				<div class="footer">
+					<div
+						class="fullscreen"
+						onclick="unityInstance.SetFullscreen(1)"
+					></div>
+				</div>
+			</div>
+		</main>
+
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+		></script>
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
+		></script>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+		<script type="module" src="/games.js"></script>
+	</body>
+</html>

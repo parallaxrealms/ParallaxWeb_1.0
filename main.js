@@ -529,11 +529,6 @@ social_icons.addEventListener('mouseout', () => {
   social_icons.classList.add("d-none");
   home_btn.classList.remove("home-bg-hover");
 })
-// social_icon.addEventListener('mouseover', () => {
-//   hovering_icons = false;
-//   social_icons.classList.add("d-none");
-//   home_btn.classList.remove("home-bg-hover");
-// })
 
 const home_content = document.getElementById("content-home");
 const home_btn = document.getElementById("home-link");
@@ -653,6 +648,7 @@ function navigatePages(pageIndex) {
     closeModal();
   }
 }
+
 function checkScrollHeight() {
   window.scrollTo(0, 0);
   const t = document.body.getBoundingClientRect().top;

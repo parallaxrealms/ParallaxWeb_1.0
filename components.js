@@ -53,7 +53,6 @@ function showSlides(n) {
 // Email Forms
 const contact_submit_btn = $('#submit_button');
 $('#contact-form').on('submit', function (event) {
-  alert("!");
   event.preventDefault();
 
   contact_submit_btn.value = 'Sending...';
